@@ -15,15 +15,41 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css?v=2" />
   <script>
     (function () {
-      try {
-        var theme = localStorage.getItem("theme");
-        if (theme === "light" || theme === "dark") {
-          document.documentElement.setAttribute("data-theme", theme);
+      var KEY = "theme";
+
+      function readTheme() {
+        try {
+          var stored = localStorage.getItem(KEY);
+          if (stored === "light" || stored === "dark") return stored;
+        } catch (e) { /* ignore */ }
+        return "dark";
+      }
+
+      function applyTheme(theme) {
+        document.documentElement.setAttribute("data-theme", theme);
+        try {
+          localStorage.setItem(KEY, theme);
+        } catch (e) { /* ignore */ }
+        var toggle = document.getElementById("theme-toggle");
+        if (toggle) {
+          toggle.textContent = theme === "light" ? "Koyu tema" : "Açık tema";
+          toggle.setAttribute("aria-pressed", theme === "light" ? "true" : "false");
         }
-      } catch (e) { /* ignore */ }
+        var meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) {
+          meta.setAttribute("content", theme === "light" ? "#f3f4f6" : "#121214");
+        }
+      }
+
+      window.toggleTheme = function () {
+        var next = document.documentElement.getAttribute("data-theme") === "light" ? "dark" : "light";
+        applyTheme(next);
+      };
+
+      applyTheme(readTheme());
     })();
   </script>
 </head>
@@ -37,7 +63,7 @@
       <a href="#ozellikler">Özellikler</a>
       <a href="#ekranlar">Ekranlar</a>
       <a href="privacy.html">Gizlilik</a>
-      <button type="button" class="theme-toggle" id="theme-toggle" aria-pressed="false">Açık tema</button>
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-pressed="false" onclick="toggleTheme()">Açık tema</button>
       <a class="btn btn-small"
          href="https://play.google.com/store/apps/details?id=com.broadcast.app"
          target="_blank"
@@ -146,33 +172,14 @@
       if (year) {
         year.textContent = new Date().getFullYear();
       }
-
-      var root = document.documentElement;
-      var toggle = document.getElementById("theme-toggle");
-
-      function labelFor(theme) {
-        return theme === "light" ? "Koyu tema" : "Açık tema";
-      }
-
-      function applyTheme(theme) {
-        root.setAttribute("data-theme", theme);
-        try {
-          localStorage.setItem("theme", theme);
-        } catch (e) { /* ignore */ }
+      if (typeof window.toggleTheme === "function") {
+        var current = document.documentElement.getAttribute("data-theme") || "dark";
+        document.documentElement.setAttribute("data-theme", current);
+        var toggle = document.getElementById("theme-toggle");
         if (toggle) {
-          toggle.textContent = labelFor(theme);
-          toggle.setAttribute("aria-pressed", theme === "light" ? "true" : "false");
+          toggle.textContent = current === "light" ? "Koyu tema" : "Açık tema";
+          toggle.setAttribute("aria-pressed", current === "light" ? "true" : "false");
         }
-      }
-
-      var current = root.getAttribute("data-theme") || "dark";
-      applyTheme(current === "light" ? "light" : "dark");
-
-      if (toggle) {
-        toggle.addEventListener("click", function () {
-          var next = root.getAttribute("data-theme") === "light" ? "dark" : "light";
-          applyTheme(next);
-        });
       }
     });
   </script>

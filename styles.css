@@ -1,5 +1,4 @@
-:root,
-[data-theme="dark"] {
+:root {
   --bg: #0c0c10;
   --surface: #16161c;
   --card: #1e1e26;
@@ -13,9 +12,25 @@
   --danger: #e85d5d;
   --radius: 18px;
   --max: 1120px;
+  color-scheme: dark;
 }
 
-[data-theme="light"] {
+html[data-theme="dark"] {
+  --bg: #0c0c10;
+  --surface: #16161c;
+  --card: #1e1e26;
+  --line: #2a2a32;
+  --text: #f4f4f5;
+  --muted: #9a9aa8;
+  --accent: #14d9c0;
+  --accent-dim: rgba(20, 217, 192, 0.14);
+  --on-accent: #04221c;
+  --nav-bg: rgba(12, 12, 16, 0.88);
+  --danger: #e85d5d;
+  color-scheme: dark;
+}
+
+html[data-theme="light"] {
   --bg: #f3f4f6;
   --surface: #ffffff;
   --card: #ffffff;
@@ -27,14 +42,14 @@
   --on-accent: #04221c;
   --nav-bg: rgba(243, 244, 246, 0.92);
   --danger: #c44545;
+  color-scheme: light;
 }
 
 * { box-sizing: border-box; }
 html {
   scroll-behavior: smooth;
-  color-scheme: dark;
+  background: var(--bg);
 }
-[data-theme="light"] { color-scheme: light; }
 body {
   margin: 0;
   font-family: Inter, system-ui, -apple-system, sans-serif;
