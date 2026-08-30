@@ -1,0 +1,36 @@
+Radyo DJ
+Kısa açıklama (80 karakter, TR):
+Telefondan Icecast ve Shoutcast yayını. Kuyruk, listeler, mikrofon ve mikser.
+
+Short description (EN, 80 chars):
+Broadcast to Icecast and Shoutcast from your phone. Queue, lists, mic, mixer.
+
+Kategori: Müzik ve ses
+Paket: com.broadcast.app
+
+Tam açıklama (TR):
+Radyo DJ, canlı yayın için tasarlanmış bir stüdyo uygulamasıdır.
+
+• Icecast ve Shoutcast kaynak bağlantısı, TLS, çoklu hedef
+• Yerel MP3 kütüphanesi, kuyruk, isimli listeler
+• Canlı mikrofon, ducking ve üç bantlı mikser
+• Otomatik parça metadata’sı ve yeniden bağlanma
+• Yedek al / yedek yükle
+
+Yayın sunucusu sizin kontrolünüzdedir. Hesap veya reklam yoktur.
+
+Full description (EN):
+Radyo DJ is a phone studio for live Icecast and Shoutcast.
+
+• Icecast and Shoutcast source, TLS, extra mounts
+• Local MP3 library, queue, named lists
+• Live microphone, ducking, three-bus mixer
+• Auto track metadata and reconnect
+• Backup export and import
+
+You run the streaming server. No accounts, no ads.
+
+Play Console görselleri:
+- İkon: assets/brand/icon-512.png (512×512)
+- Telefon: play-store/phone-screenshots/*.jpg (1080×1920, 9:16)
+- Gizlilik URL: https://akibrahim5481.github.io/EUDjBroadcaster/privacy.html

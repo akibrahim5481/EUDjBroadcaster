@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Radyo DJ — Icecast ve Shoutcast yayın stüdyosu</title>
+  <meta name="description" content="Radyo DJ ile telefondan Icecast ve Shoutcast yayını yapın. Kütüphane, kuyruk, isimli listeler, canlı mikrofon ve mikser tek uygulamada." />
+  <meta name="theme-color" content="#121214" />
+  <link rel="icon" href="assets/brand/icon-round.png" />
+  <link rel="apple-touch-icon" href="assets/brand/icon-512.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="nav">
+    <a class="brand" href="./">
+      <img src="assets/brand/icon-round.png" width="36" height="36" alt="" />
+      <span>Radyo DJ</span>
+    </a>
+    <nav>
+      <a href="#ozellikler">Özellikler</a>
+      <a href="#ekranlar">Ekranlar</a>
+      <a href="privacy.html">Gizlilik</a>
+      <a class="btn btn-small" href="#indir">Play Store</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Yayın stüdyosu</p>
+        <h1>Telefondan Icecast ve Shoutcast yayını</h1>
+        <p class="lede">
+          MP3 kütüphanenizi yönetin, kuyruğu ve isimli listeleri kurun, mikrofonu mikserle harmanlayın.
+          Radyo DJ, canlı yayın için tasarlanmış koyu temalı bir stüdyo uygulamasıdır.
+        </p>
+        <div class="hero-actions">
+          <a class="btn" id="indir" href="https://play.google.com/store/apps/details?id=com.broadcast.app">Google Play’den indir</a>
+          <a class="btn btn-ghost" href="privacy.html">Gizlilik politikası</a>
+        </div>
+        <ul class="pills">
+          <li>Icecast</li>
+          <li>Shoutcast</li>
+          <li>Canlı mikrofon</li>
+          <li>Yerel MP3</li>
+        </ul>
+      </div>
+      <div class="hero-art">
+        <img src="assets/screenshots/playstore/01-studio.png" alt="Radyo DJ stüdyo ekranı" />
+      </div>
+    </section>
+
+    <section id="ozellikler" class="features">
+      <h2>Stüdyoda ne var</h2>
+      <div class="grid">
+        <article>
+          <h3>Canlı yayın</h3>
+          <p>Icecast ve Shoutcast sunucularına bağlanın. TLS, çoklu hedef, otomatik metadata ve yeniden bağlanma desteklenir.</p>
+        </article>
+        <article>
+          <h3>Mikser ve mikrofon</h3>
+          <p>Deck, mikrofon ve master fader’lar. Mikrofon açıkken müzik otomatik kısılır.</p>
+        </article>
+        <article>
+          <h3>Kütüphane ve kuyruk</h3>
+          <p>Dosya veya klasörden MP3 ekleyin. Kuyruğu sıralayın veya tek dokunuşla temizleyin.</p>
+        </article>
+        <article>
+          <h3>İsimli listeler</h3>
+          <p>Slow, Pop, Arabesk gibi setler oluşturun; listeyi kuyruğa yükleyin veya ekleyin.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="ekranlar" class="shots">
+      <h2>Uygulama ekranları</h2>
+      <p class="section-lead">Google Play için 9:16 telefon görselleri. Ham kareler <code>assets/screenshots/raw</code> klasöründe; Play Console JPEG’leri <code>play-store/phone-screenshots</code> içindedir.</p>
+      <div class="shot-row">
+        <figure>
+          <img src="assets/screenshots/playstore/01-studio.png" alt="Stüdyo" />
+          <figcaption>Stüdyo</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/screenshots/playstore/02-media-queue.png" alt="Kuyruk" />
+          <figcaption>Kuyruk</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/screenshots/playstore/03-library.png" alt="Kütüphane" />
+          <figcaption>Kütüphane</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/screenshots/playstore/04-lists.png" alt="Listeler" />
+          <figcaption>Listeler</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/screenshots/playstore/06-settings-connection.png" alt="Bağlantı ayarları" />
+          <figcaption>Bağlantı</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/screenshots/playstore/07-settings-profile.png" alt="Yayın profili" />
+          <figcaption>Profil</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/screenshots/playstore/08-settings-metadata.png" alt="Metadata" />
+          <figcaption>Metadata</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/screenshots/playstore/09-settings-general.png" alt="Genel ayarlar" />
+          <figcaption>Genel</figcaption>
+        </figure>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="y"></span> Radyo DJ · <a href="privacy.html">Gizlilik</a> · <a href="support.html">Destek</a></p>
+    <p class="fine">Play Store paket adı: <code>com.broadcast.app</code></p>
+  </footer>
+  <script>document.getElementById("y").textContent = new Date().getFullYear()</script>
+</body>
+</html>
