@@ -15,54 +15,20 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=2" />
-  <script>
-    (function () {
-      var KEY = "theme";
-
-      function readTheme() {
-        try {
-          var stored = localStorage.getItem(KEY);
-          if (stored === "light" || stored === "dark") return stored;
-        } catch (e) { /* ignore */ }
-        return "dark";
-      }
-
-      function applyTheme(theme) {
-        document.documentElement.setAttribute("data-theme", theme);
-        try {
-          localStorage.setItem(KEY, theme);
-        } catch (e) { /* ignore */ }
-        var toggle = document.getElementById("theme-toggle");
-        if (toggle) {
-          toggle.textContent = theme === "light" ? "Koyu tema" : "Açık tema";
-          toggle.setAttribute("aria-pressed", theme === "light" ? "true" : "false");
-        }
-        var meta = document.querySelector('meta[name="theme-color"]');
-        if (meta) {
-          meta.setAttribute("content", theme === "light" ? "#f3f4f6" : "#121214");
-        }
-      }
-
-      window.toggleTheme = function () {
-        var next = document.documentElement.getAttribute("data-theme") === "light" ? "dark" : "light";
-        applyTheme(next);
-      };
-
-      applyTheme(readTheme());
-    })();
-  </script>
+  <link rel="stylesheet" href="styles.css?v=3" />
+  <script src="theme.js?v=3"></script>
 </head>
 <body>
   <header class="nav">
-    <a class="brand" href="./">
+    <a class="brand" href="index.html">
       <img src="assets/brand/icon-round.png" width="36" height="36" alt="Radyo DJ Logo" />
       <span>Radyo DJ</span>
     </a>
     <nav>
-      <a href="#ozellikler">Özellikler</a>
-      <a href="#ekranlar">Ekranlar</a>
+      <a href="index.html#ozellikler">Özellikler</a>
+      <a href="index.html#ekranlar">Ekranlar</a>
       <a href="privacy.html">Gizlilik</a>
+      <a href="support.html">Destek</a>
       <button type="button" class="theme-toggle" id="theme-toggle" aria-pressed="false" onclick="toggleTheme()">Açık tema</button>
       <a class="btn btn-small"
          href="https://play.google.com/store/apps/details?id=com.broadcast.app"
@@ -166,22 +132,5 @@
     <p>© <span id="y"></span> Radyo DJ · <a href="privacy.html">Gizlilik</a> · <a href="support.html">Destek</a></p>
     <p class="fine">Play Store paket adı: <code>com.broadcast.app</code></p>
   </footer>
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      var year = document.getElementById("y");
-      if (year) {
-        year.textContent = new Date().getFullYear();
-      }
-      if (typeof window.toggleTheme === "function") {
-        var current = document.documentElement.getAttribute("data-theme") || "dark";
-        document.documentElement.setAttribute("data-theme", current);
-        var toggle = document.getElementById("theme-toggle");
-        if (toggle) {
-          toggle.textContent = current === "light" ? "Koyu tema" : "Açık tema";
-          toggle.setAttribute("aria-pressed", current === "light" ? "true" : "false");
-        }
-      }
-    });
-  </script>
 </body>
 </html>

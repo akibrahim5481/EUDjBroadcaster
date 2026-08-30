@@ -1,22 +1,30 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="tr" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Destek — Radyo DJ</title>
   <meta name="theme-color" content="#121214" />
   <link rel="icon" href="assets/brand/icon-round.png" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css?v=3" />
+  <script src="theme.js?v=3"></script>
 </head>
 <body>
   <header class="nav">
-    <a class="brand" href="./">
-      <img src="assets/brand/icon-round.png" width="36" height="36" alt="" />
+    <a class="brand" href="index.html">
+      <img src="assets/brand/icon-round.png" width="36" height="36" alt="Radyo DJ Logo" />
       <span>Radyo DJ</span>
     </a>
     <nav>
-      <a href="./">Ana sayfa</a>
+      <a href="index.html#ozellikler">Özellikler</a>
+      <a href="index.html#ekranlar">Ekranlar</a>
       <a href="privacy.html">Gizlilik</a>
+      <a href="support.html">Destek</a>
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-pressed="false" onclick="toggleTheme()">Açık tema</button>
+      <a class="btn btn-small"
+         href="https://play.google.com/store/apps/details?id=com.broadcast.app"
+         target="_blank"
+         rel="noopener noreferrer">Play Store</a>
     </nav>
   </header>
   <article class="prose">
