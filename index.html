@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="tr" data-theme="dark">
+<html lang="tr" data-theme="dark" data-page="index">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -9,14 +9,27 @@
   <meta property="og:title" content="Radyo DJ — Icecast ve Shoutcast yayın stüdyosu" />
   <meta property="og:description" content="Radyo DJ ile telefondan Icecast ve Shoutcast yayını yapın. Kütüphane, kuyruk, isimli listeler, canlı mikrofon ve mikser tek uygulamada." />
   <meta property="og:type" content="website" />
+  <meta property="og:locale" content="tr_TR" />
   <meta property="og:image" content="https://akibrahim5481.github.io/EUDjBroadcaster/assets/brand/icon-512.png" />
   <link rel="icon" href="assets/brand/icon-round.png" />
   <link rel="apple-touch-icon" href="assets/brand/icon-512.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=3" />
-  <script src="theme.js?v=3"></script>
+  <link rel="stylesheet" href="styles.css?v=4" />
+  <script src="theme.js?v=4"></script>
+  <script>
+    (function () {
+      try {
+        var l = localStorage.getItem("lang");
+        if (!l) l = ((navigator.language || "") + "").slice(0, 2).toLowerCase();
+        if (l === "en" || l === "de" || l === "fr") {
+          document.documentElement.setAttribute("lang", l);
+          document.documentElement.classList.add("i18n-pending");
+        }
+      } catch (e) { /* ignore */ }
+    })();
+  </script>
 </head>
 <body>
   <header class="nav">
@@ -25,10 +38,16 @@
       <span>Radyo DJ</span>
     </a>
     <nav>
-      <a href="index.html#ozellikler">Özellikler</a>
-      <a href="index.html#ekranlar">Ekranlar</a>
-      <a href="privacy.html">Gizlilik</a>
-      <a href="support.html">Destek</a>
+      <a href="index.html#ozellikler" data-i18n="nav.features">Özellikler</a>
+      <a href="index.html#ekranlar" data-i18n="nav.screens">Ekranlar</a>
+      <a href="privacy.html" data-i18n="nav.privacy">Gizlilik</a>
+      <a href="support.html" data-i18n="nav.support">Destek</a>
+      <div class="lang-switch" role="group" data-i18n-aria="nav.langLabel" aria-label="Dil">
+        <button type="button" data-set-lang="tr">TR</button>
+        <button type="button" data-set-lang="en">EN</button>
+        <button type="button" data-set-lang="de">DE</button>
+        <button type="button" data-set-lang="fr">FR</button>
+      </div>
       <button type="button" class="theme-toggle" id="theme-toggle" aria-pressed="false" onclick="toggleTheme()">Açık tema</button>
       <a class="btn btn-small"
          href="https://play.google.com/store/apps/details?id=com.broadcast.app"
@@ -40,9 +59,9 @@
   <main>
     <section class="hero">
       <div class="hero-copy">
-        <p class="eyebrow">Yayın stüdyosu</p>
-        <h1>Telefondan Icecast ve Shoutcast yayını</h1>
-        <p class="lede">
+        <p class="eyebrow" data-i18n="hero.eyebrow">Yayın stüdyosu</p>
+        <h1 data-i18n="hero.title">Telefondan Icecast ve Shoutcast yayını</h1>
+        <p class="lede" data-i18n="hero.lede">
           MP3 kütüphanenizi yönetin, kuyruğu ve isimli listeleri kurun, mikrofonu mikserle harmanlayın.
           Radyo DJ, canlı yayın için tasarlanmış koyu temalı bir stüdyo uygulamasıdır.
         </p>
@@ -51,86 +70,91 @@
              id="indir"
              href="https://play.google.com/store/apps/details?id=com.broadcast.app"
              target="_blank"
-             rel="noopener noreferrer">Google Play’den indir</a>
-          <a class="btn btn-ghost" href="privacy.html">Gizlilik politikası</a>
+             rel="noopener noreferrer"
+             data-i18n="hero.download">Google Play’den indir</a>
+          <a class="btn btn-ghost" href="privacy.html" data-i18n="hero.privacy">Gizlilik politikası</a>
         </div>
         <ul class="pills">
           <li>Icecast</li>
           <li>Shoutcast</li>
-          <li>Canlı mikrofon</li>
-          <li>Yerel MP3</li>
+          <li data-i18n="hero.pillMic">Canlı mikrofon</li>
+          <li data-i18n="hero.pillMp3">Yerel MP3</li>
         </ul>
       </div>
       <div class="hero-art">
-        <img src="assets/screenshots/playstore/01-studio.png" alt="Radyo DJ stüdyo ekranı" />
+        <img src="assets/screenshots/playstore/01-studio.png" data-i18n-alt="hero.artAlt" alt="Radyo DJ stüdyo ekranı" />
       </div>
     </section>
 
     <section id="ozellikler" class="features">
-      <h2>Stüdyoda ne var</h2>
+      <h2 data-i18n="features.title">Stüdyoda ne var</h2>
       <div class="grid">
         <article>
-          <h3>Canlı yayın</h3>
-          <p>Icecast ve Shoutcast sunucularına bağlanın. TLS, çoklu hedef, otomatik metadata ve yeniden bağlanma desteklenir.</p>
+          <h3 data-i18n="features.liveTitle">Canlı yayın</h3>
+          <p data-i18n="features.liveBody">Icecast ve Shoutcast sunucularına bağlanın. TLS, çoklu hedef, otomatik metadata ve yeniden bağlanma desteklenir.</p>
         </article>
         <article>
-          <h3>Mikser ve mikrofon</h3>
-          <p>Deck, mikrofon ve master fader’lar. Mikrofon açıkken müzik otomatik kısılır.</p>
+          <h3 data-i18n="features.mixerTitle">Mikser ve mikrofon</h3>
+          <p data-i18n="features.mixerBody">Deck, mikrofon ve master fader’lar. Mikrofon açıkken müzik otomatik kısılır.</p>
         </article>
         <article>
-          <h3>Kütüphane ve kuyruk</h3>
-          <p>Dosya veya klasörden MP3 ekleyin. Kuyruğu sıralayın veya tek dokunuşla temizleyin.</p>
+          <h3 data-i18n="features.libraryTitle">Kütüphane ve kuyruk</h3>
+          <p data-i18n="features.libraryBody">Dosya veya klasörden MP3 ekleyin. Kuyruğu sıralayın veya tek dokunuşla temizleyin.</p>
         </article>
         <article>
-          <h3>İsimli listeler</h3>
-          <p>Slow, Pop, Arabesk gibi setler oluşturun; listeyi kuyruğa yükleyin veya ekleyin.</p>
+          <h3 data-i18n="features.listsTitle">İsimli listeler</h3>
+          <p data-i18n="features.listsBody">Slow, Pop, Arabesk gibi setler oluşturun; listeyi kuyruğa yükleyin veya ekleyin.</p>
         </article>
       </div>
     </section>
 
     <section id="ekranlar" class="shots">
-      <h2>Uygulama ekranları</h2>
-      <p class="section-lead">Google Play için 9:16 telefon görselleri. Ham kareler <code>assets/screenshots/raw</code> klasöründe; Play Console JPEG’leri <code>play-store/phone-screenshots</code> içindedir.</p>
+      <h2 data-i18n="shots.title">Uygulama ekranları</h2>
+      <p class="section-lead" data-i18n-html="shots.lead">Google Play için 9:16 telefon görselleri. Ham kareler <code>assets/screenshots/raw</code> klasöründe; Play Console JPEG’leri <code>play-store/phone-screenshots</code> içindedir.</p>
       <div class="shot-row">
         <figure>
-          <img src="assets/screenshots/playstore/01-studio.png" alt="Stüdyo" loading="lazy" />
-          <figcaption>Stüdyo</figcaption>
+          <img src="assets/screenshots/playstore/01-studio.png" data-i18n-alt="shots.altStudio" alt="Stüdyo" loading="lazy" />
+          <figcaption data-i18n="shots.studio">Stüdyo</figcaption>
         </figure>
         <figure>
-          <img src="assets/screenshots/playstore/02-media-queue.png" alt="Kuyruk" loading="lazy" />
-          <figcaption>Kuyruk</figcaption>
+          <img src="assets/screenshots/playstore/02-media-queue.png" data-i18n-alt="shots.altQueue" alt="Kuyruk" loading="lazy" />
+          <figcaption data-i18n="shots.queue">Kuyruk</figcaption>
         </figure>
         <figure>
-          <img src="assets/screenshots/playstore/03-library.png" alt="Kütüphane" loading="lazy" />
-          <figcaption>Kütüphane</figcaption>
+          <img src="assets/screenshots/playstore/03-library.png" data-i18n-alt="shots.altLibrary" alt="Kütüphane" loading="lazy" />
+          <figcaption data-i18n="shots.library">Kütüphane</figcaption>
         </figure>
         <figure>
-          <img src="assets/screenshots/playstore/04-lists.png" alt="Listeler" loading="lazy" />
-          <figcaption>Listeler</figcaption>
+          <img src="assets/screenshots/playstore/04-lists.png" data-i18n-alt="shots.altLists" alt="Listeler" loading="lazy" />
+          <figcaption data-i18n="shots.lists">Listeler</figcaption>
         </figure>
         <figure>
-          <img src="assets/screenshots/playstore/06-settings-connection.png" alt="Bağlantı ayarları" loading="lazy" />
-          <figcaption>Bağlantı</figcaption>
+          <img src="assets/screenshots/playstore/06-settings-connection.png" data-i18n-alt="shots.altConnection" alt="Bağlantı ayarları" loading="lazy" />
+          <figcaption data-i18n="shots.connection">Bağlantı</figcaption>
         </figure>
         <figure>
-          <img src="assets/screenshots/playstore/07-settings-profile.png" alt="Yayın profili" loading="lazy" />
-          <figcaption>Profil</figcaption>
+          <img src="assets/screenshots/playstore/07-settings-profile.png" data-i18n-alt="shots.altProfile" alt="Yayın profili" loading="lazy" />
+          <figcaption data-i18n="shots.profile">Profil</figcaption>
         </figure>
         <figure>
-          <img src="assets/screenshots/playstore/08-settings-metadata.png" alt="Metadata" loading="lazy" />
-          <figcaption>Metadata</figcaption>
+          <img src="assets/screenshots/playstore/08-settings-metadata.png" data-i18n-alt="shots.altMetadata" alt="Metadata" loading="lazy" />
+          <figcaption data-i18n="shots.metadata">Metadata</figcaption>
         </figure>
         <figure>
-          <img src="assets/screenshots/playstore/09-settings-general.png" alt="Genel ayarlar" loading="lazy" />
-          <figcaption>Genel</figcaption>
+          <img src="assets/screenshots/playstore/09-settings-general.png" data-i18n-alt="shots.altGeneral" alt="Genel ayarlar" loading="lazy" />
+          <figcaption data-i18n="shots.general">Genel</figcaption>
         </figure>
       </div>
     </section>
   </main>
 
   <footer>
-    <p>© <span id="y"></span> Radyo DJ · <a href="privacy.html">Gizlilik</a> · <a href="support.html">Destek</a></p>
-    <p class="fine">Play Store paket adı: <code>com.broadcast.app</code></p>
+    <p>© <span id="y"></span> Radyo DJ · <a href="privacy.html" data-i18n="nav.privacy">Gizlilik</a> · <a href="support.html" data-i18n="nav.support">Destek</a></p>
+    <p class="fine"><span data-i18n="footer.package">Play Store paket adı:</span> <code>com.broadcast.app</code></p>
   </footer>
+  <script src="i18n.js?v=4"></script>
+  <script>
+    setTimeout(function () { document.documentElement.classList.remove("i18n-pending"); }, 1200);
+  </script>
 </body>
 </html>

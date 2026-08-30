@@ -16,7 +16,13 @@
     } catch (e) { /* ignore */ }
     var toggle = document.getElementById("theme-toggle");
     if (toggle) {
-      toggle.textContent = theme === "light" ? "Koyu tema" : "Açık tema";
+      var lightLabel = "Açık tema";
+      var darkLabel = "Koyu tema";
+      if (window.I18N && typeof window.I18N.t === "function") {
+        lightLabel = window.I18N.t("nav.themeLight");
+        darkLabel = window.I18N.t("nav.themeDark");
+      }
+      toggle.textContent = theme === "light" ? darkLabel : lightLabel;
       toggle.setAttribute("aria-pressed", theme === "light" ? "true" : "false");
     }
     var meta = document.querySelector('meta[name="theme-color"]');

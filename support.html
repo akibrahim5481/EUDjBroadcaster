@@ -1,13 +1,26 @@
 <!DOCTYPE html>
-<html lang="tr" data-theme="dark">
+<html lang="tr" data-theme="dark" data-page="support">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Destek — Radyo DJ</title>
+  <meta name="description" content="Radyo DJ kurulum, bağlantı ve yayın sorunları için destek." />
   <meta name="theme-color" content="#121214" />
   <link rel="icon" href="assets/brand/icon-round.png" />
-  <link rel="stylesheet" href="styles.css?v=3" />
-  <script src="theme.js?v=3"></script>
+  <link rel="stylesheet" href="styles.css?v=4" />
+  <script src="theme.js?v=4"></script>
+  <script>
+    (function () {
+      try {
+        var l = localStorage.getItem("lang");
+        if (!l) l = ((navigator.language || "") + "").slice(0, 2).toLowerCase();
+        if (l === "en" || l === "de" || l === "fr") {
+          document.documentElement.setAttribute("lang", l);
+          document.documentElement.classList.add("i18n-pending");
+        }
+      } catch (e) { /* ignore */ }
+    })();
+  </script>
 </head>
 <body>
   <header class="nav">
@@ -16,10 +29,16 @@
       <span>Radyo DJ</span>
     </a>
     <nav>
-      <a href="index.html#ozellikler">Özellikler</a>
-      <a href="index.html#ekranlar">Ekranlar</a>
-      <a href="privacy.html">Gizlilik</a>
-      <a href="support.html">Destek</a>
+      <a href="index.html#ozellikler" data-i18n="nav.features">Özellikler</a>
+      <a href="index.html#ekranlar" data-i18n="nav.screens">Ekranlar</a>
+      <a href="privacy.html" data-i18n="nav.privacy">Gizlilik</a>
+      <a href="support.html" data-i18n="nav.support">Destek</a>
+      <div class="lang-switch" role="group" data-i18n-aria="nav.langLabel" aria-label="Dil">
+        <button type="button" data-set-lang="tr">TR</button>
+        <button type="button" data-set-lang="en">EN</button>
+        <button type="button" data-set-lang="de">DE</button>
+        <button type="button" data-set-lang="fr">FR</button>
+      </div>
       <button type="button" class="theme-toggle" id="theme-toggle" aria-pressed="false" onclick="toggleTheme()">Açık tema</button>
       <a class="btn btn-small"
          href="https://play.google.com/store/apps/details?id=com.broadcast.app"
@@ -28,21 +47,25 @@
     </nav>
   </header>
   <article class="prose">
-    <h1>Destek</h1>
-    <p>
+    <h1 data-i18n="support.title">Destek</h1>
+    <p data-i18n="support.intro">
       Radyo DJ, Icecast ve Shoutcast kaynak bağlantısı, yerel MP3 kuyruğu ve canlı mikrofon
       karışımı için bir stüdyo uygulamasıdır.
     </p>
-    <h2>Sık sorunlar</h2>
+    <h2 data-i18n="support.faq">Sık sorunlar</h2>
     <ul>
-      <li><strong>Bağlanamıyorum:</strong> Telefondan PC sunucusuna giderken <code>localhost</code> yerine bilgisayarın LAN IP’sini yazın. Icecast mount ve şifreyi kontrol edin.</li>
-      <li><strong>Shoutcast port:</strong> Kaynak genelde 8001, admin/stats 8000’dir.</li>
-      <li><strong>Albüm kapağı yok:</strong> Kapak MP3 içindeki ID3 resminden okunur. Yalnızca oynatıcı önbelleğinde olan görseller görünmez; dosyayı yeniden ekleyin.</li>
-      <li><strong>Mikrofon duyulmuyor:</strong> Sistem mikrofon iznini ve stüdyodaki mikrofon düğmesini açın; mikserde mic fader’ı yükseltin.</li>
+      <li data-i18n-html="support.itemConnect"><strong>Bağlanamıyorum:</strong> Telefondan PC sunucusuna giderken <code>localhost</code> yerine bilgisayarın LAN IP’sini yazın. Icecast mount ve şifreyi kontrol edin.</li>
+      <li data-i18n-html="support.itemPort"><strong>Shoutcast port:</strong> Kaynak genelde 8001, admin/stats 8000’dir.</li>
+      <li data-i18n-html="support.itemArt"><strong>Albüm kapağı yok:</strong> Kapak MP3 içindeki ID3 resminden okunur. Yalnızca oynatıcı önbelleğinde olan görseller görünmez; dosyayı yeniden ekleyin.</li>
+      <li data-i18n-html="support.itemMic"><strong>Mikrofon duyulmuyor:</strong> Sistem mikrofon iznini ve stüdyodaki mikrofon düğmesini açın; mikserde mic fader’ı yükseltin.</li>
     </ul>
-    <h2>Play Store</h2>
-    <p>Paket adı: <code>com.broadcast.app</code></p>
-    <p>Gizlilik politikası URL’si olarak bu sitedeki <a href="privacy.html">privacy.html</a> adresini kullanın.</p>
+    <h2 data-i18n="support.store">Play Store</h2>
+    <p data-i18n-html="support.package">Paket adı: <code>com.broadcast.app</code></p>
+    <p data-i18n-html="support.policy">Gizlilik politikası URL’si olarak bu sitedeki <a href="privacy.html">privacy.html</a> adresini kullanın.</p>
   </article>
+  <script src="i18n.js?v=4"></script>
+  <script>
+    setTimeout(function () { document.documentElement.classList.remove("i18n-pending"); }, 1200);
+  </script>
 </body>
 </html>

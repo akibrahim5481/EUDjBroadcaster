@@ -50,6 +50,7 @@ html {
   scroll-behavior: smooth;
   background: var(--bg);
 }
+html.i18n-pending body { visibility: hidden; }
 body {
   margin: 0;
   font-family: Inter, system-ui, -apple-system, sans-serif;
@@ -138,9 +139,37 @@ code {
   cursor: pointer;
 }
 .theme-toggle:hover { border-color: var(--accent); }
-.theme-toggle:focus-visible {
+.theme-toggle:focus-visible,
+.lang-switch button:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
+}
+
+.lang-switch {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 2px;
+  border: 1px solid var(--line);
+  background: var(--card);
+  border-radius: 12px;
+  padding: 3px;
+}
+.lang-switch button {
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.02em;
+  padding: 6px 8px;
+  border-radius: 9px;
+  cursor: pointer;
+}
+.lang-switch button.is-active {
+  background: var(--accent-dim);
+  color: var(--accent);
 }
 
 .hero, .features, .shots, .prose, footer {
